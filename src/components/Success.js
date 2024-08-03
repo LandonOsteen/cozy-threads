@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import Header from './Header';
+import HeaderNoCart from './HeaderNoCart';
 
 const Success = () => {
   const location = useLocation();
@@ -44,7 +44,7 @@ const Success = () => {
 
   return (
     <div className="container mx-auto">
-      <Header />
+      <HeaderNoCart />
       <h1 className="text-4xl text-center my-8 font-semibold">
         Payment Successful
       </h1>

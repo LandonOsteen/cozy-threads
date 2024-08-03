@@ -1,10 +1,10 @@
 import React from 'react';
-import Header from './Header';
+import HeaderNoCart from './HeaderNoCart';
 
 const Cancel = () => {
   return (
     <div className="container mx-auto">
-      <Header />
+      <HeaderNoCart />
       <div className="text-center">
         <h1 className="text-4xl font-semibold text-center my-6">
           Payment Canceled
