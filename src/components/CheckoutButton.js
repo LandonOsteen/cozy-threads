@@ -3,16 +3,13 @@ import React from 'react';
 const CheckoutButton = ({ cart }) => {
   const handleCheckout = async () => {
     try {
-      const response = await fetch(
-        'http://localhost:4242/create-checkout-session',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ cart }),
-        }
-      );
+      const response = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ cart }),
+      });
 
       if (!response.ok) {
         const errorData = await response.json();

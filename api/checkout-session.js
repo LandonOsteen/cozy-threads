@@ -6,6 +6,7 @@ module.exports = async (req, res) => {
     const session = await stripe.checkout.sessions.retrieve(sessionId);
     res.status(200).json(session);
   } catch (error) {
+    console.error('Error retrieving Stripe session:', error);
     res.status(500).json({ error: error.message });
   }
 };
