@@ -48,11 +48,17 @@ const Success = () => {
       <h1 className="text-4xl text-center my-8 font-semibold">
         Payment Successful
       </h1>
-      <h1 className="text-lg">Thank you for your purchase!</h1>
+      <h1 className="text-lg font-semibold">Thank you for your purchase!</h1>
+      <h1 className="text-md font-semibold">
+        Here are the details for your purchase:
+      </h1>
       <p>Payment ID: {sessionData.id}</p>
       <p>Amount: ${(sessionData.amount_total / 100).toFixed(2)}</p>
       <p>Payment Status: {sessionData.payment_status}</p>
-      <button href="/" className="bg-blue-500 text-white px-4 py-2">
+      <button
+        href="/"
+        className="bg-blue-500 text-white px-4 py-2 rounded-md my-3"
+      >
         Return to store
       </button>
     </div>
