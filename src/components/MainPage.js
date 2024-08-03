@@ -65,7 +65,7 @@ const MainPage = () => {
   return (
     <div className="container mx-auto">
       <Header openCart={() => setDrawerOpen(true)} />
-      <div className="grid grid-cols-3 gap-10 my-5">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 my-5">
         {products.map((product) => (
           <ProductCard
             key={product.id}

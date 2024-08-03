@@ -6,14 +6,26 @@ const CartDrawer = ({ cart, isOpen, onClose, removeFromCart }) => {
 
   return (
     <div
-      className={`fixed right-0 top-0 w-1/3 h-full p-10 bg-slate-950 shadow-lg transform ${
+      className={`fixed right-0 top-0 w-full h-full p-10 bg-slate-950 shadow-lg transform ${
         isOpen ? 'translate-x-0' : 'translate-x-full'
       } transition-transform duration-300`}
     >
-      <button onClick={onClose} className="text-xl p-4">
-        x
+      <button onClick={onClose} className="text-sm p-4 text-red-600">
+        CLOSE CART
       </button>
       <h2 className="text-3xl font-bold p-4">Your Cart</h2>
+      <h2 className="text-sm p-4">
+        Thank you for shopping on our test store. You can checkout using any of
+        the sample credit card numbers{' '}
+        <a
+          href="https://stripe.com/docs/testing#cards"
+          target="_blank"
+          rel="noreferrer"
+          className="text-green-200"
+        >
+          at this link.
+        </a>
+      </h2>
       <div className="p-4">
         {cart.map((product) => (
           <div key={product.id}>
@@ -35,7 +47,7 @@ const CartDrawer = ({ cart, isOpen, onClose, removeFromCart }) => {
                 onClick={() => removeFromCart(product.id)}
                 className="text-red-500"
               >
-                Remove
+                Remove item
               </button>
             </div>
           </div>

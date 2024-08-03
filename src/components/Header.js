@@ -9,9 +9,9 @@ const Header = ({ openCart }) => {
       </Link>
       <button
         onClick={openCart}
-        className="text-lg font-medium text-blue-500 hover:underline"
+        className="text-sm font-medium text-blue-500 hover:underline"
       >
-        Open Cart
+        OPEN CART
       </button>
     </header>
   );

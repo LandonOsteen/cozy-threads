@@ -3,7 +3,7 @@ import React from 'react';
 
 const ProductCard = ({ product, addToCart }) => {
   return (
-    <div className="bg-slate-900 p-8">
+    <div className="bg-slate-900 p-8 rounded-md hover:bg-slate-800">
       <img
         src={product.image}
         alt={product.title}
@@ -14,7 +14,7 @@ const ProductCard = ({ product, addToCart }) => {
       <p className="text-2xl font-bold text-blue-200">${product.price}</p>
       <button
         onClick={() => addToCart(product)}
-        className="mt-4 bg-blue-500 text-white px-4 py-2"
+        className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-sm"
       >
         Add to Cart
       </button>

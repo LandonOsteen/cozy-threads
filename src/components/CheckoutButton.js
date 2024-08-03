@@ -31,9 +31,9 @@ const CheckoutButton = ({ cart }) => {
   return (
     <button
       onClick={handleCheckout}
-      className="mt-4 bg-green-500 text-white px-4 py-2 w-full"
+      className="mt-4 bg-blue-500 text-white px-4 py-2 w-full rounded-md"
     >
-      Checkout
+      Checkout with Stripe
     </button>
   );
 };
