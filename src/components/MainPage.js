@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import ProductCard from './ProductCard';
 import CartDrawer from './CartDrawer';
-import Logo from './Logo';
+import Header from './Header';
 
 const products = [
   {
@@ -64,8 +64,8 @@ const MainPage = () => {
 
   return (
     <div className="container mx-auto">
-      <Logo />
-      <div className="grid grid-cols-3 gap-4">
+      <Header openCart={() => setDrawerOpen(true)} />
+      <div className="grid grid-cols-3 gap-10 my-5">
         {products.map((product) => (
           <ProductCard
             key={product.id}

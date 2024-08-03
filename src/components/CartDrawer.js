@@ -1,7 +1,5 @@
-// src/components/CartDrawer.js
 import React from 'react';
 import CheckoutButton from './CheckoutButton';
-import Logo from './Logo';
 
 const CartDrawer = ({ cart, isOpen, onClose, removeFromCart }) => {
   const total = cart.reduce((sum, product) => sum + product.price, 0);
@@ -18,15 +16,20 @@ const CartDrawer = ({ cart, isOpen, onClose, removeFromCart }) => {
       <h2 className="text-3xl font-bold p-4">Your Cart</h2>
       <div className="p-4">
         {cart.map((product) => (
-          <div>
-            <hr className="w-full my-3" />
-            <div
-              key={product.id}
-              className="flex justify-between items-center mb-4"
-            >
-              <div>
-                <h3 className="text-xl font-semibold">{product.title}</h3>
-                <p className="text-green-200 font-semibold">${product.price}</p>
+          <div key={product.id}>
+            <div className="flex justify-between items-center mb-4">
+              <div className="flex items-center my-1">
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="w-16 h-16 object-cover mr-4"
+                />
+                <div>
+                  <h3 className="text-xl font-semibold">{product.title}</h3>
+                  <p className="text-green-200 font-semibold">
+                    ${product.price}
+                  </p>
+                </div>
               </div>
               <button
                 onClick={() => removeFromCart(product.id)}

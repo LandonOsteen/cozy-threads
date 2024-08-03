@@ -1,10 +1,10 @@
 import React from 'react';
-import Logo from './Logo';
+import Header from './Header';
 
 const Cancel = () => {
   return (
     <div className="container mx-auto">
-      <Logo />
+      <Header />
       <div className="text-center">
         <h1 className="text-4xl font-semibold text-center my-6">
           Payment Canceled

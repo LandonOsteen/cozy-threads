@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import Logo from './Logo';
+import Header from './Header';
 
 const Success = () => {
   const location = useLocation();
@@ -25,7 +25,7 @@ const Success = () => {
 
   return (
     <div className="container mx-auto">
-      <Logo />
+      <Header />
       <div className="text-center">
         <h1 className="text-4xl font-semibold text-center my-8">
           Payment Successful
