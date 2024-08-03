@@ -6,7 +6,7 @@ const CartDrawer = ({ cart, isOpen, onClose, removeFromCart }) => {
 
   return (
     <div
-      className={`fixed right-0 top-0 w-2/4 h-full p-10 bg-slate-950 shadow-lg transform ${
+      className={`fixed right-0 top-0 w-1/3 h-full p-10 bg-slate-950 shadow-lg transform ${
         isOpen ? 'translate-x-0' : 'translate-x-full'
       } transition-transform duration-300`}
     >
