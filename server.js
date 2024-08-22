@@ -40,6 +40,7 @@ app.get('/checkout-session', async (req, res) => {
     const paymentIntents = await stripe.paymentIntents.list({
       customer: session.customer,
     });
+    console.log('hello');
     console.log(paymentIntents);
   } catch (error) {
     console.error('Error retrieving Stripe session:', error);
