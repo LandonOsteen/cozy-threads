@@ -7,6 +7,8 @@ app.use(cors());
 app.use(express.static('public'));
 app.use(express.json());
 
+let paymentIntents;
+
 app.post('/create-checkout-session', async (req, res) => {
   try {
     const session = await stripe.checkout.sessions.create({
@@ -36,16 +38,18 @@ app.get('/checkout-session', async (req, res) => {
   const { sessionId } = req.query;
   try {
     const session = await stripe.checkout.sessions.retrieve(sessionId);
-    res.json(session);
-    const paymentIntents = await stripe.paymentIntents.list({
+    paymentIntents = await stripe.paymentIntents.list({
       customer: session.customer,
     });
     console.log('hello');
     console.log(paymentIntents);
+    res.json(paymentIntents);
   } catch (error) {
     console.error('Error retrieving Stripe session:', error);
     res.status(500).json({ error: error.message });
   }
 });
+
+export { paymentIntents };
 
 app.listen(4242, () => console.log('Running on port 4242'));

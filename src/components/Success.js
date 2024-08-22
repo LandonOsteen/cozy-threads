@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import HeaderNoCart from './HeaderNoCart';
+import { paymentIntents } from '../../server';
 
 const Success = () => {
   const location = useLocation();
@@ -53,10 +54,11 @@ const Success = () => {
       <h1 className="text-md font-semibold">
         Here are the details for your purchase:
       </h1>
-      <p>Payment ID: {sessionData.id}</p>
+      <p>Payment ID: {paymentIntents}</p>
       <p>Amount: ${(sessionData.amount_total / 100).toFixed(2)}</p>
       <p>Payment Status: {sessionData.payment_status}</p>
       <p>Payment History: {sessionData.customer}</p>
+      <p>Payment Intents: {paymentIntents}</p>
       <button
         href="/"
         className="bg-blue-500 text-white px-4 py-2 rounded-md my-3"
