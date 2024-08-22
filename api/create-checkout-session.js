@@ -4,6 +4,7 @@ module.exports = async (req, res) => {
   if (req.method === 'POST') {
     try {
       const session = await stripe.checkout.sessions.create({
+        customer_creation: 'always',
         payment_method_types: ['card'],
         line_items: req.body.cart.map((item) => ({
           price_data: {
@@ -29,3 +30,5 @@ module.exports = async (req, res) => {
     res.status(405).end('Method Not Allowed');
   }
 };
+
+// figure out a way to attach the session
