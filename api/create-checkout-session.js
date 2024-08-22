@@ -1,6 +1,7 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 module.exports = async (req, res) => {
+  const paymentIntents = await stripe.paymentIntents.list();
   if (req.method === 'POST') {
     try {
       const session = await stripe.checkout.sessions.create({
@@ -30,5 +31,7 @@ module.exports = async (req, res) => {
     res.status(405).end('Method Not Allowed');
   }
 };
+
+//.paymentIntents.list
 
 // figure out a way to attach the session
