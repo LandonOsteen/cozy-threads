@@ -3,7 +3,7 @@ import React from 'react';
 
 const ProductCard = ({ product, addToCart }) => {
   return (
-    <div className="bg-slate-900 p-8 rounded-md hover:bg-slate-800">
+    <div className="p-8 rounded-md text-white">
       <img
         src={product.image}
         alt={product.title}

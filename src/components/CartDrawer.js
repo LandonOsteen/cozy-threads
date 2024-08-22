@@ -1,12 +1,13 @@
 import React from 'react';
 import CheckoutButton from './CheckoutButton';
 
-const CartDrawer = ({ cart, isOpen, onClose, removeFromCart }) => {
+const CartDrawer = ({ cart, isOpen, onClose, removeFromCart, color }) => {
   const total = cart.reduce((sum, product) => sum + product.price, 0);
 
   return (
     <div
-      className={`fixed right-0 top-0 w-full h-full p-10 bg-slate-950 shadow-lg md:w-2/4 transform ${
+      style={{ backgroundColor: color, minHeight: '100vh' }}
+      className={`text-white fixed right-0 top-0 w-full h-full p-10 shadow-lg md:w-2/4 transform ${
         isOpen ? 'translate-x-0' : 'translate-x-full'
       } transition-transform duration-300`}
     >

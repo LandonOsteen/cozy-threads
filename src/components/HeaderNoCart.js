@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const HeaderNoCart = ({ openCart }) => {
   return (
-    <header className="flex justify-between items-center p-4 bg-slate-950 shadow-md">
+    <header className="flex justify-between items-center p-4 shadow-md">
       <Link to="/">
         <img src="logo.png" alt="Cozy Threads Logo" className="w-32" />
       </Link>

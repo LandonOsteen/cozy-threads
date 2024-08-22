@@ -49,7 +49,7 @@ const products = [
   },
 ];
 
-const MainPage = () => {
+const MainPage = ({ color }) => {
   const [cart, setCart] = useState([]);
   const [isDrawerOpen, setDrawerOpen] = useState(false);
 
@@ -75,6 +75,7 @@ const MainPage = () => {
         ))}
       </div>
       <CartDrawer
+        color={color}
         cart={cart}
         isOpen={isDrawerOpen}
         onClose={() => setDrawerOpen(false)}
