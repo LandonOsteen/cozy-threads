@@ -50,6 +50,4 @@ app.get('/checkout-session', async (req, res) => {
   }
 });
 
-export { paymentIntents };
-
 app.listen(4242, () => console.log('Running on port 4242'));
