@@ -16,7 +16,6 @@ const Success = () => {
       }
 
       try {
-        const customerHistory = await fetch(`api/customer-history`);
         const response = await fetch(
           `/api/checkout-session?sessionId=${sessionId}`
         );
