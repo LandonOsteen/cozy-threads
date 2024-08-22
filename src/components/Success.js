@@ -55,6 +55,7 @@ const Success = () => {
       <p>Payment ID: {sessionData.id}</p>
       <p>Amount: ${(sessionData.amount_total / 100).toFixed(2)}</p>
       <p>Payment Status: {sessionData.payment_status}</p>
+      <p>Payment History: {sessionData.customer}</p>
       <button
         href="/"
         className="bg-blue-500 text-white px-4 py-2 rounded-md my-3"
