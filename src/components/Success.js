@@ -49,31 +49,31 @@ const Success = () => {
       <HeaderNoCart />
       <div className="container mx-auto px-4 py-12">
         <div className="p-6">
-          <h1 className="text-3xl font-bold text-center text-green-600 mb-8">
+          <h1 className="text-3xl font-bold text-center text-green-400 mb-8">
             Payment Successful!
           </h1>
-          <p className="text-lg text-center mb-6">
+          <p className="text-lg text-center text-white mb-6">
             Thank you for your purchase! Below are your purchase details.
           </p>
 
-          <div className="p-4 rounded-lg border border-gray-300 mb-6">
-            <h2 className="text-xl font-semibold text-gray-700 mb-2">
+          <div className="p-4 rounded-lg border border-gray-500 mb-6">
+            <h2 className="text-xl font-semibold text-white mb-2">
               Purchase Summary:
             </h2>
-            <p className="text-gray-600">
+            <p className="text-white">
               <strong>Payment ID:</strong> {sessionData.id}
             </p>
-            <p className="text-gray-600">
+            <p className="text-white">
               <strong>Amount:</strong> $
               {(sessionData.amount_total / 100).toFixed(2)}
             </p>
-            <p className="text-gray-600">
+            <p className="text-white">
               <strong>Payment Status:</strong> {sessionData.payment_status}
             </p>
           </div>
 
-          <div className="p-4 rounded-lg border border-gray-300">
-            <h2 className="text-xl font-semibold text-gray-700 mb-4">
+          <div className="p-4 rounded-lg border border-gray-500">
+            <h2 className="text-xl font-semibold text-white mb-4">
               Purchase History:
             </h2>
             {paymentHistory.length > 0 ? (
@@ -81,23 +81,23 @@ const Success = () => {
                 {paymentHistory.map((payment) => (
                   <li
                     key={payment.id}
-                    className="p-4 rounded-md border border-gray-300"
+                    className="p-4 rounded-md border border-gray-500"
                   >
-                    <p className="text-gray-600">
+                    <p className="text-white">
                       <strong>Payment ID:</strong> {payment.id}
                     </p>
-                    <p className="text-gray-600">
+                    <p className="text-white">
                       <strong>Amount:</strong> $
                       {(payment.amount / 100).toFixed(2)}
                     </p>
-                    <p className="text-gray-600">
+                    <p className="text-white">
                       <strong>Status:</strong> {payment.status}
                     </p>
                   </li>
                 ))}
               </ul>
             ) : (
-              <p className="text-gray-600">No previous purchases found.</p>
+              <p className="text-white">No previous purchases found.</p>
             )}
           </div>
 
