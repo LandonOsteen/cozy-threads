@@ -45,39 +45,72 @@ const Success = () => {
   }
 
   return (
-    <div className="container mx-auto">
+    <div className="min-h-screen bg-gray-100">
       <HeaderNoCart />
-      <h1 className="text-4xl text-center my-8 font-semibold">
-        Payment Successful
-      </h1>
-      <h1 className="text-lg font-semibold">Thank you for your purchase!</h1>
-      <h1 className="text-md font-semibold">
-        Here are the details for your purchase:
-      </h1>
-      <p>Payment ID: {sessionData.id}</p>
-      <p>Amount: ${(sessionData.amount_total / 100).toFixed(2)}</p>
-      <p>Payment Status: {sessionData.payment_status}</p>
+      <div className="container mx-auto px-4 py-12">
+        <div className="bg-white shadow-md rounded-lg p-6">
+          <h1 className="text-3xl font-bold text-center text-green-600 mb-8">
+            Payment Successful!
+          </h1>
+          <p className="text-lg text-center mb-6">
+            Thank you for your purchase! Below are your purchase details.
+          </p>
 
-      <h2 className="text-lg font-semibold mt-6">Purchase History:</h2>
-      {paymentHistory.length > 0 ? (
-        <ul>
-          {paymentHistory.map((payment) => (
-            <li key={payment.id}>
-              Payment ID: {payment.id}, Amount: $
-              {(payment.amount / 100).toFixed(2)}, Status: {payment.status}
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>No previous purchases found.</p>
-      )}
+          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
+            <h2 className="text-xl font-semibold text-gray-700 mb-2">
+              Purchase Summary:
+            </h2>
+            <p className="text-gray-600">
+              <strong>Payment ID:</strong> {sessionData.id}
+            </p>
+            <p className="text-gray-600">
+              <strong>Amount:</strong> $
+              {(sessionData.amount_total / 100).toFixed(2)}
+            </p>
+            <p className="text-gray-600">
+              <strong>Payment Status:</strong> {sessionData.payment_status}
+            </p>
+          </div>
 
-      <button
-        href="/"
-        className="bg-blue-500 text-white px-4 py-2 rounded-md my-3"
-      >
-        Return to store
-      </button>
+          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <h2 className="text-xl font-semibold text-gray-700 mb-4">
+              Purchase History:
+            </h2>
+            {paymentHistory.length > 0 ? (
+              <ul className="space-y-2">
+                {paymentHistory.map((payment) => (
+                  <li
+                    key={payment.id}
+                    className="p-4 bg-white shadow rounded-md border border-gray-200"
+                  >
+                    <p className="text-gray-600">
+                      <strong>Payment ID:</strong> {payment.id}
+                    </p>
+                    <p className="text-gray-600">
+                      <strong>Amount:</strong> $
+                      {(payment.amount / 100).toFixed(2)}
+                    </p>
+                    <p className="text-gray-600">
+                      <strong>Status:</strong> {payment.status}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-gray-600">No previous purchases found.</p>
+            )}
+          </div>
+
+          <div className="text-center mt-8">
+            <a
+              href="/"
+              className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-md"
+            >
+              Return to Store
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
