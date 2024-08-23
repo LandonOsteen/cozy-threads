@@ -48,7 +48,7 @@ const Success = () => {
     <div className="min-h-screen bg-gray-100">
       <HeaderNoCart />
       <div className="container mx-auto px-4 py-12">
-        <div className="bg-white shadow-md rounded-lg p-6">
+        <div className="p-6">
           <h1 className="text-3xl font-bold text-center text-green-600 mb-8">
             Payment Successful!
           </h1>
@@ -56,7 +56,7 @@ const Success = () => {
             Thank you for your purchase! Below are your purchase details.
           </p>
 
-          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
+          <div className="p-4 rounded-lg border border-gray-300 mb-6">
             <h2 className="text-xl font-semibold text-gray-700 mb-2">
               Purchase Summary:
             </h2>
@@ -72,7 +72,7 @@ const Success = () => {
             </p>
           </div>
 
-          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+          <div className="p-4 rounded-lg border border-gray-300">
             <h2 className="text-xl font-semibold text-gray-700 mb-4">
               Purchase History:
             </h2>
@@ -81,7 +81,7 @@ const Success = () => {
                 {paymentHistory.map((payment) => (
                   <li
                     key={payment.id}
-                    className="p-4 bg-white shadow rounded-md border border-gray-200"
+                    className="p-4 rounded-md border border-gray-300"
                   >
                     <p className="text-gray-600">
                       <strong>Payment ID:</strong> {payment.id}
