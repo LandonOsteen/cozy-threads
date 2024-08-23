@@ -5,6 +5,7 @@ import HeaderNoCart from './HeaderNoCart';
 const Success = () => {
   const location = useLocation();
   const [sessionData, setSessionData] = useState(null);
+  const [paymentHistory, setPaymentHistory] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -22,9 +23,9 @@ const Success = () => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-        console.log('response', response);
         const data = await response.json();
-        setSessionData(data);
+        setSessionData(data.session);
+        setPaymentHistory(data.paymentHistory);
       } catch (error) {
         console.error('Error fetching session data:', error);
       } finally {
@@ -53,10 +54,24 @@ const Success = () => {
       <h1 className="text-md font-semibold">
         Here are the details for your purchase:
       </h1>
-      <p>Payment ID: {sessionData}</p>
-      {/* <p>Amount: ${(sessionData.amount_total / 100).toFixed(2)}</p>
+      <p>Payment ID: {sessionData.id}</p>
+      <p>Amount: ${(sessionData.amount_total / 100).toFixed(2)}</p>
       <p>Payment Status: {sessionData.payment_status}</p>
-      <p>Payment History: {sessionData.customer}</p> */}
+
+      <h2 className="text-lg font-semibold mt-6">Purchase History:</h2>
+      {paymentHistory.length > 0 ? (
+        <ul>
+          {paymentHistory.map((payment) => (
+            <li key={payment.id}>
+              Payment ID: {payment.id}, Amount: $
+              {(payment.amount / 100).toFixed(2)}, Status: {payment.status}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>No previous purchases found.</p>
+      )}
+
       <button
         href="/"
         className="bg-blue-500 text-white px-4 py-2 rounded-md my-3"
