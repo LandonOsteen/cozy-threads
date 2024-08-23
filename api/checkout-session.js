@@ -9,15 +9,31 @@ module.exports = async (req, res) => {
     // Get customer ID from the session
     const customerId = session.customer;
 
-    // Retrieve the customer's payment history
-    const paymentIntents = await stripe.paymentIntents.list({
-      customer: customerId,
-    });
+    // Initialize an empty array to hold all payment intents
+    let allPaymentIntents = [];
+    let hasMore = true;
+    let startingAfter = null;
 
-    // Return both the session data and payment history
+    // Paginate through all payment intents for the customer
+    while (hasMore) {
+      const paymentIntents = await stripe.paymentIntents.list({
+        customer: customerId,
+        starting_after: startingAfter,
+      });
+
+      allPaymentIntents = allPaymentIntents.concat(paymentIntents.data);
+      hasMore = paymentIntents.has_more;
+
+      // Set the startingAfter parameter for the next request (if more data exists)
+      if (hasMore) {
+        startingAfter = paymentIntents.data[paymentIntents.data.length - 1].id;
+      }
+    }
+
+    // Return both the session data and the complete payment history
     res.status(200).json({
       session,
-      paymentHistory: paymentIntents.data,
+      paymentHistory: allPaymentIntents,
     });
   } catch (error) {
     console.error('Error retrieving Stripe session:', error);
